@@ -1,6 +1,8 @@
 // Package structures provides structures that can be used to create various data structures.
 package structures
 
+import "fmt"
+
 // TreeNode is a node in a binary tree data structure.
 type TreeNode struct {
 	Left  *TreeNode
@@ -12,4 +14,16 @@ type TreeNode struct {
 type ListNode struct {
 	Val  int
 	Next *ListNode
+}
+
+func PrintList(head *ListNode) {
+	for {
+		if head == nil {
+			fmt.Print("null")
+			return
+		}
+		fmt.Print(head.Val)
+		fmt.Print(" -> ")
+		head = head.Next
+	}
 }
