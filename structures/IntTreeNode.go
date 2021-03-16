@@ -27,3 +27,54 @@ func PrintList(head *ListNode) {
 		head = head.Next
 	}
 }
+
+func PrintTree(head *TreeNode, leaves int) {
+	if head == nil {
+		return
+	}
+	fmt.Println(head.Val, leaves)
+	PrintTree(head.Left, leaves+1)
+	PrintTree(head.Right, leaves+1)
+}
+
+func BuildTree(vals []int) *TreeNode {
+	if vals == nil {
+		return nil
+	}
+	var node *TreeNode
+	var head *TreeNode
+	for _, val := range vals {
+		if head == nil {
+			node = &TreeNode{
+				Val: val,
+			}
+			head = node
+			continue
+		}
+		node = head
+		for {
+			if val < node.Val {
+				if node.Left != nil {
+					node = node.Left
+				} else {
+					node.Left = &TreeNode{
+						Val: val,
+					}
+					break
+				}
+			} else if val > node.Val {
+				if node.Right != nil {
+					node = node.Right
+				} else {
+					node.Right = &TreeNode{
+						Val: val,
+					}
+					break
+				}
+			} else {
+				break
+			}
+		}
+	}
+	return head
+}
