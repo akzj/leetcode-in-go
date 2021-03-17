@@ -37,6 +37,19 @@ func PrintTree(head *TreeNode, leaves int) {
 	PrintTree(head.Right, leaves+1)
 }
 
+func BuildList(vals []int) *ListNode {
+	var head = &ListNode{}
+	var result = head
+	for i, val := range vals {
+		head.Val = val
+		if i != len(vals)-1 {
+			head.Next = &ListNode{}
+			head = head.Next
+		}
+	}
+	return result
+}
+
 func BuildTree(vals []int) *TreeNode {
 	if vals == nil {
 		return nil
