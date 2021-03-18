@@ -2,10 +2,9 @@ package construct_binary_tree_from_preorder_and_inorder_traversal_105
 
 import (
 	"github.com/akzj/leetcode-in-go/structures"
-	"github.com/stretchr/testify"
 	"testing"
 )
 
 func TestBuildTree(t *testing.T) {
-	assert.True(t,true)
+	structures.PrintTree(BuildTree([]int{3, 9, 20, 15, 7}, []int{9, 3, 15, 20, 7}), 0)
 }
