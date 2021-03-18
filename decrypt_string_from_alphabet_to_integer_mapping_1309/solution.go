@@ -59,8 +59,7 @@ func Decrypt2(data string) string {
 			result += string(table[index])
 			i += 3
 		} else {
-			fmt.
-			result += string(table[])
+			result += string(table[data[i]-'1'])
 			i += 1
 		}
 	}
